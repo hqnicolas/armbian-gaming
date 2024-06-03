@@ -172,11 +172,11 @@ function winetricksInstall {
 
 function installPPSSPP {
 	cd ~
-	git clone --recurse-submodules https://github.com/hrydgard/ppsspp.git
+	git clone --recurse-submodules --depth 1 --branch v1.16.6 https://github.com/hrydgard/ppsspp.git
 	cd ppsspp
 	git pull --rebase https://github.com/hrydgard/ppsspp.git
 	git submodule update --init --recursive
-	sudo apt -y install build-essential cmake libgl1-mesa-dev libsdl2-dev libvulkan-dev
+	sudo apt -y install build-essential cmake libgl1-mesa-dev libsdl2-dev libglfw3-dev libglu1-mesa-dev
 	/bin/bash ./b.sh
 	cd build
 	make
